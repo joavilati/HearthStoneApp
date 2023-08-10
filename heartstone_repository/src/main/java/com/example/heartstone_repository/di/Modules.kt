@@ -1,6 +1,7 @@
 package com.example.heartstone_repository.di
 
 import com.example.heartstone_repository.BuildConfig
+import com.example.heartstone_repository.repository.HearthStoneAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.EntryPoint
@@ -8,6 +9,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -19,9 +21,9 @@ object NetworkModule  {
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
-            .connectTimeout(15, TimeUnit.SECONDS)
-            .readTimeout(15, TimeUnit.SECONDS)
-            .writeTimeout(15, TimeUnit.SECONDS)
+            .connectTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(30, TimeUnit.SECONDS)
+            .writeTimeout(30, TimeUnit.SECONDS)
             .addInterceptor { chain ->
                 val original = chain.request()
                 val requestBuilder = original.newBuilder()
@@ -41,7 +43,14 @@ object NetworkModule  {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideHearthStoneAPI(retrofit: Retrofit): HearthStoneAPI {
+        return retrofit.create(HearthStoneAPI::class.java)
     }
 
 }
