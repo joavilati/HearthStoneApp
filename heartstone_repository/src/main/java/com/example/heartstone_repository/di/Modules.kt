@@ -41,7 +41,6 @@ object NetworkModule  {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
-            // Adicione outros conversores e configurações, se necessário
             .build()
     }
 
