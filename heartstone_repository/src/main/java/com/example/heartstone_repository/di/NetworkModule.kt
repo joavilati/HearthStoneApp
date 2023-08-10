@@ -4,7 +4,6 @@ import com.example.heartstone_repository.BuildConfig
 import com.example.heartstone_repository.repository.HearthStoneAPI
 import dagger.Module
 import dagger.Provides
-import dagger.hilt.EntryPoint
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
