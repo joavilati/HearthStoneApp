@@ -12,7 +12,7 @@ abstract class BaseUseCase<T>(
     protected val liveData: MutableLiveData<T> = MutableLiveData()
 ) : UseCase<T> {
 
-    protected val coroutineScope = CoroutineScope(Dispatchers.IO + job)
+    private val coroutineScope = CoroutineScope(Dispatchers.IO + job)
 
     abstract fun execute()
 

@@ -2,12 +2,11 @@ package com.example.hearthstoneapp.domain
 
 import com.example.hearthstoneapp.model.Info
 import com.example.heartstone_repository.data.HearthStoneRepository
-import com.example.heartstone_repository.utils.GenericException
 import javax.inject.Inject
 
 class GetInfoUseCase @Inject constructor(
     private val repo: HearthStoneRepository
-) : BaseUseCase<Result>() {
+) : BaseUseCase<GetInfoUseCase.Result>() {
     override fun execute() {
         launch {
             try {
@@ -18,5 +17,10 @@ class GetInfoUseCase @Inject constructor(
                 liveData.value = Result.OnError(e.message ?: "")
             }
         }
+    }
+
+    sealed class Result {
+        data class OnSuccess(val data: Info) : Result()
+        class OnError(val message: String) : Result()
     }
 }

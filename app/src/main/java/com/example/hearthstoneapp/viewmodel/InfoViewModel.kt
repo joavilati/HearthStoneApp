@@ -6,14 +6,16 @@ import com.example.hearthstoneapp.model.Info
 
 abstract class InfoViewModel: ViewModel() {
 
-    sealed class State {
-        data class InfoLoaded(val info: Info) : State()
-        object ShowLoading : State()
-        object ShowContent : State()
-        object ShowError : State()
+    sealed class InfoState {
+        data class InfoLoaded(val info: Info) : InfoState()
+        object ShowLoading : InfoState()
+        object ShowContent : InfoState()
+        data class ShowError(val message: String) : InfoState()
     }
 
-    abstract fun getState(): LiveData<State>
+    abstract fun getState(): LiveData<InfoState>
 
     abstract fun getInfo()
+
+    abstract fun clear()
 }
