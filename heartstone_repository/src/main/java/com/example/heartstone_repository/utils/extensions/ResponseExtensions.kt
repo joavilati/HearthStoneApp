@@ -6,7 +6,7 @@ import retrofit2.Response
 fun <T> Response<T>.handleErrors(): T {
     when {
         isSuccessful -> {
-            return body() ?: throw NullPointerException()
+            return body() ?: throw GenericException()
         }
         code() == 400 -> {
             throw BadRequestException()

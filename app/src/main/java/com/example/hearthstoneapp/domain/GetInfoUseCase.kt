@@ -11,14 +11,11 @@ class GetInfoUseCase @Inject constructor(
     override fun execute() {
         launch {
             try {
-                val response = repo.getInfo()
-                response.body()?.let { data ->
-                    liveData.postValue(Result.OnSuccess(Info from data))
-                    return@launch
-                }
-                throw GenericException()
+                val data = repo.getInfo()
+                liveData.postValue(Result.OnSuccess(Info from data))
+
             } catch (e: Exception) {
-                liveData.postValue(Result.OnError(e.message ?: ""))
+                liveData.value = Result.OnError(e.message ?: "")
             }
         }
     }
