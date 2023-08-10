@@ -1,7 +1,8 @@
-package com.example.hearthstoneapp
+package com.example.hearthstoneapp.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hearthstoneapp.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

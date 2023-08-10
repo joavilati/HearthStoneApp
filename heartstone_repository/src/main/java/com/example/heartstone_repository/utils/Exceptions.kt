@@ -9,3 +9,4 @@ class ForbiddenException(message: String = "Acesso proibido. Você não tem perm
 class NotFoundException(message: String = "Recurso não encontrado. O recurso solicitado não existe ou foi removido.") : Exception(message)
 
 class InternalServerErrorException(message: String = "Erro interno do servidor. Por favor, tente novamente mais tarde.") : Exception(message)
+class GenericException(message: String = "Desculpe, ocorreu um erro inesperado. Por favor, tente novamente mais tarde.") : Exception(message)

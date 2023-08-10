@@ -1,4 +1,4 @@
-package com.example.hearthstoneapp.domain
+package com.example.hearthstoneapp.model
 
 enum class Classes(val value: String) {
     DRUID("Druid"),
