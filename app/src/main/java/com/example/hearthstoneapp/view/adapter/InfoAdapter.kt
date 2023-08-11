@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hearthstoneapp.R
-import com.example.hearthstoneapp.constants.Constants
+import com.example.hearthstoneapp.util.constants.Constants
 import com.example.hearthstoneapp.databinding.ItemTypeInfoCardBinding
 import com.example.hearthstoneapp.model.*
 

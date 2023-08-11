@@ -1,6 +1,6 @@
 package com.example.hearthstoneapp.model
 
-import com.example.hearthstoneapp.constants.Constants
+import com.example.hearthstoneapp.util.constants.Constants
 
 enum class Classes(val value: String) {
     DRUID("Druid"),

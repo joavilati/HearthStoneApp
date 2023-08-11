@@ -6,6 +6,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.example.hearthstoneapp.databinding.ActivityMainBinding
+import com.example.hearthstoneapp.util.extensions.showAlert
 import com.example.hearthstoneapp.view.adapter.InfoAdapter
 import com.example.hearthstoneapp.viewmodel.InfoViewModel
 import com.example.hearthstoneapp.viewmodel.InfoViewModelFactory
@@ -52,17 +53,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToSearchCards(typeName: String, name: String) {
         startActivity(CardsByActivity.createIntent(this, typeName, name))
-    }
-
-    fun showAlert(message: String, onOkPressed: () -> Unit) {
-        val builder = AlertDialog.Builder(this)
-        builder.setMessage(message)
-            .setPositiveButton("OK") { dialog, _ ->
-                onOkPressed()
-                dialog.dismiss()
-            }
-        val alert = builder.create()
-        alert.show()
     }
 
     override fun onDestroy() {
