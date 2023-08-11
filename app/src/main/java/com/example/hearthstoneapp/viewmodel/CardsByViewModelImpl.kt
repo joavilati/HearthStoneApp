@@ -3,7 +3,6 @@ package com.example.hearthstoneapp.viewmodel
 
 import androidx.lifecycle.MediatorLiveData
 import com.example.hearthstoneapp.domain.GetCardsByUseCase
-import com.example.hearthstoneapp.domain.GetInfoUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -14,21 +13,21 @@ class CardsByViewModelImpl @Inject constructor(
 ): CardsByViewModel() {
 
     init {
-        state.addSource(getInfoUseCase.getLiveData(), ::onGetInfo)
+        state.addSource(getInfoUseCase.getLiveData(), ::onGetCardsBy)
     }
 
     override fun getState() = state
 
-    override fun getInfo() {
+    override fun getCadsBy(typeName: String, name: String) {
         state.value = CardsByState.ShowLoading
-        getInfoUseCase.execute()
+        getInfoUseCase.setParams(typeName, name).execute()
     }
 
     override fun clear() {
         getInfoUseCase.cleanUp()
     }
 
-    fun onGetInfo(result: GetCardsByUseCase.Result) {
+    fun onGetCardsBy(result: GetCardsByUseCase.Result) {
         when(result){
             is GetCardsByUseCase.Result.OnError -> {
                 state.postValue(CardsByState.ShowError(result.message))

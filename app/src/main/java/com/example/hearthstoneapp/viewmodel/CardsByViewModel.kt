@@ -13,7 +13,6 @@ abstract class CardsByViewModel: ViewModel() {
 
     abstract fun getState(): LiveData<CardsByState>
 
-    abstract fun getInfo()
-
     abstract fun clear()
+    abstract fun getCadsBy(typeName: String, name: String)
 }
