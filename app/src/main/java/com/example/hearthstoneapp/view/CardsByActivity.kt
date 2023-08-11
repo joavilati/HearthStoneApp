@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat.startActivity
 import androidx.core.view.isVisible
 import com.example.hearthstoneapp.databinding.ActivityCardsByBinding
 import com.example.hearthstoneapp.util.extensions.showAlert
@@ -12,6 +13,7 @@ import com.example.hearthstoneapp.view.adapter.CardsByAdapter
 import com.example.hearthstoneapp.viewmodel.CardsByViewModel
 import com.example.hearthstoneapp.viewmodel.CardsByViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.*
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -49,6 +51,9 @@ class CardsByActivity : AppCompatActivity() {
         _binding = ActivityCardsByBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createObservers()
+
+        supportActionBar?.title = name
+
         viewModel.getCardsBy(typeName, name)
     }
 
@@ -56,12 +61,14 @@ class CardsByActivity : AppCompatActivity() {
         _binding = null
         super.onDestroy()
     }
+
     private fun createObservers() {
         viewModel.getState().observe(this) { state ->
             when (state) {
                 is CardsByViewModel.CardsByState.CardsByLoaded -> {
                     binding.cpiLoader.isVisible = false
-                    binding.rvCardsBy.adapter = CardsByAdapter(state.data, ::navigateToSingleCardActivity)
+                    binding.rvCardsBy.adapter =
+                        CardsByAdapter(state.data, ::navigateToSingleCardActivity)
                 }
                 is CardsByViewModel.CardsByState.ShowError -> {
                     binding.cpiLoader.isVisible = false

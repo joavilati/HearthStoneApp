@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.example.hearthstoneapp.R
 import com.example.hearthstoneapp.databinding.ActivityCardsByBinding
@@ -25,7 +26,7 @@ class SingleCardActivity : AppCompatActivity() {
     companion object {
         private const val NAME = "com.example.hearthstoneapp.view.SingleCardActivity.NAME"
 
-        fun createIntent(context: Context,name: String,): Intent {
+        fun createIntent(context: Context, name: String): Intent {
             return Intent(context, SingleCardActivity::class.java).apply {
                 putExtra(NAME, name)
 
@@ -59,13 +60,19 @@ class SingleCardActivity : AppCompatActivity() {
     }
 
     private fun createObservers() {
-        viewModel.getState().observe(this){ state ->
-            when(state){
-                is SingleCardViewModel.SingleCardState.ShowError -> {}
+        viewModel.getState().observe(this) { state ->
+            when (state) {
+                is SingleCardViewModel.SingleCardState.ShowError -> {
+                    binding.loadingBackground.isVisible = false
+                    binding.cpiLoader.isVisible = false
+                }
                 SingleCardViewModel.SingleCardState.ShowLoading -> {
-
+                    binding.loadingBackground.isVisible = true
+                    binding.cpiLoader.isVisible = true
                 }
                 is SingleCardViewModel.SingleCardState.SingleCardLoaded -> {
+                    binding.loadingBackground.isVisible = false
+                    binding.cpiLoader.isVisible = false
                     configLayout(state.data)
                 }
             }
