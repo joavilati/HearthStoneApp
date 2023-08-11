@@ -9,22 +9,22 @@ import javax.inject.Inject
 @HiltViewModel
 class CardsByViewModelImpl @Inject constructor(
     private val state: MediatorLiveData<CardsByState>,
-    private val getInfoUseCase: GetCardsByUseCase
+    private val useCase: GetCardsByUseCase
 ): CardsByViewModel() {
 
     init {
-        state.addSource(getInfoUseCase.getLiveData(), ::onGetCardsBy)
+        state.addSource(useCase.getLiveData(), ::onGetCardsBy)
     }
 
     override fun getState() = state
 
     override fun getCardsBy(typeName: String, name: String) {
         state.value = CardsByState.ShowLoading
-        getInfoUseCase.setParams(typeName, name).execute()
+        useCase.setParams(typeName, name).execute()
     }
 
     override fun clear() {
-        getInfoUseCase.cleanUp()
+        useCase.cleanUp()
     }
 
     fun onGetCardsBy(result: GetCardsByUseCase.Result) {
