@@ -43,6 +43,101 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- O restante do seu conteúdo vai aqui -->
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_marginStart="16dp"
+                android:textSize="18sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_name"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_flavor"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_flavor"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_set"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_set"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_faction"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_faction"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_rarity"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_rarity"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_attack"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_attack"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_cost"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_cost"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_health"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/label_health"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -11,7 +11,8 @@ data class Card(
     val rarity: String,
     val attack: Int,
     val cost: Int,
-    val health: Int
+    val health: Int,
+    val description: String
 ) {
 
     companion object {
@@ -19,13 +20,14 @@ data class Card(
            return Card(
                image =  item.img?:"",
                name =  item.name?:"",
-               flavor = item.flavor?:"",
-               set = item.cardSet?:"",
-               faction = item.faction?:"",
-               rarity = item.rarity?:"",
+               flavor = item.flavor?:"none",
+               set = item.cardSet?:"none",
+               faction = item.faction?:"none",
+               rarity = item.rarity?:"none",
                attack = item.attack?:0,
                cost = item.cost?:0,
-               health = item.health?:0
+               health = item.health?:0,
+               description = item.text?:""
            )
         }
     }

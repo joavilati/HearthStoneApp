@@ -49,8 +49,8 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
             health = 5,
             howToGet = "",
             howToGetGold = "",
-            img = "some_url",
-            imgGold = "some_gold_url",
+            img = "image",
+            imgGold = "url",
             locale = "enUS",
             mechanics = emptyList(),
             multiClassGroup = "",
@@ -58,12 +58,12 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
             playerClass = "Mage",
             race = "",
             rarity = "Common",
-            text = "Some card text",
+            text = "description",
             type = "Minion"
         ))
 
         val mockCard = Card(
-            image = "some_url",
+            image = "image",
             name = "TestCard",
             flavor = "Some flavor text",
             set = "Classic",
@@ -71,7 +71,8 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
             rarity = "Common",
             attack = 5,
             cost = 3,
-            health = 5
+            health = 5,
+            description = "description"
         )
 
         Mockito.`when`(mockRepo.getSingleCard("TestCard")).thenReturn(mockData)

@@ -36,7 +36,8 @@ class SingleCardViewModelImplTest : BaseCoroutineTest() {
         rarity = "Common",
         attack = 5,
         cost = 3,
-        health = 5
+        health = 5,
+        description = "description"
     )
 
     @Before

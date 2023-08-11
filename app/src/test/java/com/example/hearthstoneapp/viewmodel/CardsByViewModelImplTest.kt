@@ -27,7 +27,7 @@ class CardsByViewModelImplTest : BaseCoroutineTest() {
     @Mock
     private lateinit var mockRepo: HearthStoneRepository
 
-    private val mockCardsBy = listOf(CardsBy("teste", "teste.com"))
+    private val mockCardsBy = listOf(CardsBy("teste", "teste.com", "description"))
 
     @Before
     fun setUp() {

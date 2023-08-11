@@ -35,13 +35,14 @@ class GetCardsByUseCaseTest : BaseCoroutineTest() {
         val mockedCardsBy = listOf(
             CardsBy(
                 name = "name",
-                image = "url"
+                image = "url",
+                description = "description"
             )
         )
         val mockData = listOf(
             CardsByItemResponse(
                 cardBackId = 123,
-                description = "MockDescription",
+                text = "description",
                 enabled = true,
                 img = "url",
                 imgAnimated = "",
