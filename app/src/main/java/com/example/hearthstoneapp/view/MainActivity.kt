@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             when(state) {
                 is InfoViewModel.InfoState.InfoLoaded -> {
                     binding.cpiLoader.isVisible = false
-                    binding.rvInfo.adapter = InfoAdapter().apply {
+                    binding.rvInfo.adapter = InfoAdapter(::navigateToSearchCards).apply {
                         updateInfo(state.info)
                     }
                 }
@@ -48,6 +48,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    private fun navigateToSearchCards(typeName: String, name: String) {
+
     }
 
     fun showAlert(message: String, onOkPressed: () -> Unit) {

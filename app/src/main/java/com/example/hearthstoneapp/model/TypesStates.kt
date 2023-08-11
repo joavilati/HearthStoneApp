@@ -12,6 +12,7 @@ enum class Classes(val value: String) {
     WARRIOR("Warrior"),
     DREAM("Dream");
 
+    val typeName = "classes"
     companion object {
         fun fromString(value: String): Classes? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -35,6 +36,7 @@ enum class Sets(val value: String) {
     TAVERN_BRAWL("Tavern Brawl"),
     THE_GRAND_TOURNAMENT("The Grand Tournament");
 
+    val typeName = "sets"
     companion object {
         fun fromString(value: String): Sets? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -50,6 +52,8 @@ enum class Types(val value: String) {
     WEAPON("Weapon"),
     HERO_POWER("Hero Power");
 
+    val typeName = "types"
+
     companion object {
         fun fromString(value: String): Types? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -62,6 +66,7 @@ enum class Factions(val value: String) {
     ALLIANCE("Alliance"),
     NEUTRAL("Neutral");
 
+    val typeName = "factions"
     companion object {
         fun fromString(value: String): Factions? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -75,6 +80,8 @@ enum class Qualities(val value: String) {
     RARE("Rare"),
     EPIC("Epic"),
     LEGENDARY("Legendary");
+
+    val typeName = "qualities"
 
     companion object {
         fun fromString(value: String): Qualities? {
@@ -91,6 +98,8 @@ enum class Races(val value: String) {
     BEAST("Beast"),
     PIRATE("Pirate"),
     TOTEM("Totem");
+
+    val typeName = "races"
 
     companion object {
         fun fromString(value: String): Races? {

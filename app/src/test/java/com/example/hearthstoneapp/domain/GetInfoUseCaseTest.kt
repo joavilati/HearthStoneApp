@@ -29,7 +29,6 @@ class GetInfoUseCaseTest: BaseCoroutineTest() {
         useCase = GetInfoUseCase(mockRepo)
     }
 
-
     @Test
     fun `when repo returns data, emit OnSuccess`()  = runTest {
 
