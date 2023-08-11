@@ -6,7 +6,6 @@ import com.example.hearthstoneapp.model.*
 import com.example.hearthstoneapp.util.BaseCoroutineTest
 import com.example.hearthstoneapp.util.getOrAwaitValue
 import com.example.heartstone_repository.data.HearthStoneRepository
-import com.example.heartstone_repository.model.InfoResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
@@ -14,7 +13,6 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
-import org.mockito.Mockito
 import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi
@@ -29,17 +27,7 @@ class InfoViewModelImplTest : BaseCoroutineTest() {
     @Mock
     private lateinit var mockRepo: HearthStoneRepository
 
-    val mockData = InfoResponse(
-        patch = "3.0.0.9786",
-        classes = listOf("Druid", "Hunter", "Mage"),
-        sets = listOf("Basic", "Classic", "Credits"),
-        types = listOf("Hero", "Minion", "Spell"),
-        factions = listOf("Horde", "Alliance", "Neutral"),
-        qualities = listOf("Free", "Common", "Rare"),
-        races = listOf("Demon", "Dragon", "Mech"),
-        locales = listOf("deDE", "enGB", "enUS")
-    )
-    val mockInfo = Info(
+    private val mockInfo = Info(
         patch = "3.0.0.9786",
         classes = listOf(Classes.DRUID, Classes.HUNTER, Classes.MAGE),
         sets = listOf(Sets.BASIC, Sets.CLASSIC, Sets.CREDITS),
