@@ -17,15 +17,15 @@ data class Card(
     companion object {
         infix fun from(item: CardResponse): Card {
            return Card(
-               image =  item.img,
-               name =  item.name,
-               flavor = item.flavor,
-               set = item.cardSet,
-               faction = item.faction,
-               rarity = item.rarity,
-               attack = item.attack,
-               cost = item.cost,
-               health = item.health
+               image =  item.img?:"",
+               name =  item.name?:"",
+               flavor = item.flavor?:"",
+               set = item.cardSet?:"",
+               faction = item.faction?:"",
+               rarity = item.rarity?:"",
+               attack = item.attack?:0,
+               cost = item.cost?:0,
+               health = item.health?:0
            )
         }
     }

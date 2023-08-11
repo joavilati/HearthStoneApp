@@ -8,7 +8,7 @@ import com.example.hearthstoneapp.R
 import com.example.hearthstoneapp.databinding.ItemCardsByBinding
 import com.example.hearthstoneapp.model.CardsBy
 
-class CardsByAdapter(private val cardsByList: List<CardsBy>) : RecyclerView.Adapter<CardsByAdapter.CardsByViewHolder>() {
+class CardsByAdapter(private val cardsByList: List<CardsBy>, private val callback: (String) -> Unit) : RecyclerView.Adapter<CardsByAdapter.CardsByViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardsByViewHolder {
         val binding = ItemCardsByBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -25,6 +25,7 @@ class CardsByAdapter(private val cardsByList: List<CardsBy>) : RecyclerView.Adap
         fun bind(cardsBy: CardsBy) {
             binding.tvItemName.text = cardsBy.name
              Glide.with(binding.root.context).load(cardsBy.image).placeholder(R.drawable.card_back).into(binding.ivItem)
+            binding.btnItem.setOnClickListener { callback(cardsBy.name) }
         }
     }
 }

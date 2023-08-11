@@ -8,5 +8,5 @@ import retrofit2.Response
 interface HearthStoneRepository {
     suspend fun getInfo(): InfoResponse
     suspend fun getCardsBy(typeName: String, name: String): List<CardsByItemResponse>
-    suspend fun getSingleCard(name: String): CardResponse
+    suspend fun getSingleCard(name: String): List<CardResponse>
 }

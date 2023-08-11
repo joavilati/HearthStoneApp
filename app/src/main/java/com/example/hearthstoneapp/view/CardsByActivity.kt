@@ -23,8 +23,8 @@ class CardsByActivity : AppCompatActivity() {
     private val viewModel: CardsByViewModel by viewModels { viewModelFactory }
 
     companion object {
-        private const val TYPE_NAME = "com.example.hearthstoneapp.view.TYPE_NAME"
-        private const val NAME = "com.example.hearthstoneapp.view.NAME"
+        private const val TYPE_NAME = "com.example.hearthstoneapp.view.CardsByActivity.TYPE_NAME"
+        private const val NAME = "com.example.hearthstoneapp.view.CardsByActivity.NAME"
 
         fun createIntent(context: Context, typeName: String, name: String): Intent {
             return Intent(context, CardsByActivity::class.java).apply {
@@ -52,12 +52,16 @@ class CardsByActivity : AppCompatActivity() {
         viewModel.getCardsBy(typeName, name)
     }
 
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
+    }
     private fun createObservers() {
         viewModel.getState().observe(this) { state ->
             when (state) {
                 is CardsByViewModel.CardsByState.CardsByLoaded -> {
                     binding.cpiLoader.isVisible = false
-                    binding.rvCardsBy.adapter = CardsByAdapter(state.data)
+                    binding.rvCardsBy.adapter = CardsByAdapter(state.data, ::navigateToSingleCardActivity)
                 }
                 is CardsByViewModel.CardsByState.ShowError -> {
                     binding.cpiLoader.isVisible = false
@@ -69,5 +73,9 @@ class CardsByActivity : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    private fun navigateToSingleCardActivity(name: String) {
+        startActivity(SingleCardActivity.createIntent(this, name))
     }
 }

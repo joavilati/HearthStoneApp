@@ -2,6 +2,7 @@ package com.example.hearthstoneapp.domain
 
 import com.example.hearthstoneapp.model.Card
 import com.example.heartstone_repository.data.HearthStoneRepository
+import com.example.heartstone_repository.utils.GenericException
 import javax.inject.Inject
 
 class GetSingleCardUseCase @Inject constructor(
@@ -12,7 +13,7 @@ class GetSingleCardUseCase @Inject constructor(
     override fun execute() {
         launch {
             try {
-                val data = repo.getSingleCard(name)
+                val data = repo.getSingleCard(name).firstOrNull() ?: throw GenericException()
                 liveData.postValue(Result.OnSuccess(Card from data))
 
             } catch (e: Exception) {

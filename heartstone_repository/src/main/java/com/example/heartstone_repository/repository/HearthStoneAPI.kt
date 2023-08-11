@@ -21,5 +21,5 @@ interface HearthStoneAPI {
     @GET("cards/{name}")
     suspend fun getSingleCard(
         @Path("name") name: String,
-    ):Response<CardResponse>
+    ):Response<List<CardResponse>>
 }

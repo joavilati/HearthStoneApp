@@ -19,7 +19,7 @@ class HearthStoneDataRepository(
         return api.getCardsBy(typeName, name).handleErrors()
     }
 
-    override suspend fun getSingleCard(name: String): CardResponse {
+    override suspend fun getSingleCard(name: String): List<CardResponse> {
         return api.getSingleCard( name).handleErrors()
     }
 }
