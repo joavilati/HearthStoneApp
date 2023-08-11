@@ -5,9 +5,11 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.bumptech.glide.Glide
 import com.example.hearthstoneapp.R
 import com.example.hearthstoneapp.databinding.ActivityCardsByBinding
 import com.example.hearthstoneapp.databinding.ActivitySingleCardBinding
+import com.example.hearthstoneapp.model.Card
 import com.example.hearthstoneapp.viewmodel.CardsByViewModel
 import com.example.hearthstoneapp.viewmodel.CardsByViewModelFactory
 import com.example.hearthstoneapp.viewmodel.SingleCardViewModel
@@ -45,17 +47,30 @@ class SingleCardActivity : AppCompatActivity() {
         _binding = ActivitySingleCardBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createObservers()
+        configToolbar()
         viewModel.getSingleCard(name)
+    }
+
+    private fun configToolbar() {
+        binding.ctCard.title = name
     }
 
     private fun createObservers() {
         viewModel.getState().observe(this){ state ->
             when(state){
                 is SingleCardViewModel.SingleCardState.ShowError -> {}
-                SingleCardViewModel.SingleCardState.ShowLoading -> {}
-                is SingleCardViewModel.SingleCardState.SingleCardLoaded -> {}
+                SingleCardViewModel.SingleCardState.ShowLoading -> {
+
+                }
+                is SingleCardViewModel.SingleCardState.SingleCardLoaded -> {
+                    configLayout(state.data)
+                }
             }
         }
+    }
+
+    private fun configLayout(card: Card) {
+        Glide.with(this).load(card.image).placeholder(R.drawable.card_back).into(binding.ivCard)
     }
 
     override fun onDestroy() {
