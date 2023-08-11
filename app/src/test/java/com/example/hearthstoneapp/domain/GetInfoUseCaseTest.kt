@@ -80,20 +80,16 @@ class GetInfoUseCaseTest: BaseCoroutineTest() {
         if(isSuccess) {
             result as GetInfoUseCase.Result.OnSuccess
             assertEquals(mockInfo, result.data)
-            return@runTest
         }
     }
 
     @Test
     fun `when repo throws exception, emit OnError`() = runTest {
-        // Given
         val errorMessage = "Error occurred"
         Mockito.`when`(mockRepo.getInfo()).thenThrow(RuntimeException(errorMessage))
 
-        // When
         useCase.execute()
 
-        // Then
         val result = useCase.getLiveData().getOrAwaitValue()
         assertTrue(result is GetInfoUseCase.Result.OnError)
         assertEquals(errorMessage, (result as GetInfoUseCase.Result.OnError).message)
