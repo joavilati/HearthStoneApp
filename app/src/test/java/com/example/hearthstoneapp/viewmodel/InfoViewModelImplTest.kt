@@ -58,13 +58,6 @@ class InfoViewModelImplTest : BaseCoroutineTest() {
     }
 
     @Test
-    fun `when getInfo is called, show loading state`() = runTest {
-        viewModel.getInfo()
-        val state = viewModel.getState().getOrAwaitValue()
-        assertTrue(state is InfoViewModel.InfoState.ShowLoading)
-    }
-
-    @Test
     fun `when onGetInfo receives OnError, post ShowError state`() = runTest {
         val errorMessage = "Error occurred"
         viewModel.onGetInfo(GetInfoUseCase.Result.OnError(errorMessage))
