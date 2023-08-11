@@ -49,7 +49,7 @@ class CardsByActivity : AppCompatActivity() {
         _binding = ActivityCardsByBinding.inflate(layoutInflater)
         setContentView(binding.root)
         createObservers()
-        viewModel.getCadsBy(typeName, name)
+        viewModel.getCardsBy(typeName, name)
     }
 
     private fun createObservers() {
@@ -62,7 +62,7 @@ class CardsByActivity : AppCompatActivity() {
                 is CardsByViewModel.CardsByState.ShowError -> {
                     binding.cpiLoader.isVisible = false
                     println("Ninja ${state.message}")
-                    showAlert(state.message) { viewModel.getCadsBy(typeName, name) }
+                    showAlert(state.message) { viewModel.getCardsBy(typeName, name) }
                 }
                 CardsByViewModel.CardsByState.ShowLoading -> {
                     binding.cpiLoader.isVisible = true

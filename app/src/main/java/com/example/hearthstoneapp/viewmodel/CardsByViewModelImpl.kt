@@ -18,7 +18,7 @@ class CardsByViewModelImpl @Inject constructor(
 
     override fun getState() = state
 
-    override fun getCadsBy(typeName: String, name: String) {
+    override fun getCardsBy(typeName: String, name: String) {
         state.value = CardsByState.ShowLoading
         getInfoUseCase.setParams(typeName, name).execute()
     }
