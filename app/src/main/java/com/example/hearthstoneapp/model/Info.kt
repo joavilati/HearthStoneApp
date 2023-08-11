@@ -3,14 +3,14 @@ package com.example.hearthstoneapp.model
 import com.example.heartstone_repository.model.InfoResponse
 
 data class Info(
-    val patch: String, // Mantido como String porque não há enum correspondente para "patch"
-    val classes: List<Classes>,
-    val sets: List<Sets>,
-    val types: List<Types>,
-    val factions: List<Factions>,
-    val qualities: List<Qualities>,
-    val races: List<Races>,
-    val locales: List<Locales>
+    val patch: String = "",
+    val classes: List<Classes> = listOf(),
+    val sets: List<Sets> = listOf(),
+    val types: List<Types> = listOf(),
+    val factions: List<Factions> = listOf(),
+    val qualities: List<Qualities> = listOf(),
+    val races: List<Races> = listOf(),
+    val locales: List<Locales> = listOf()
 ) {
     companion object {
         infix fun from(response: InfoResponse): Info {
@@ -22,7 +22,7 @@ data class Info(
                 factions = response.factions.mapNotNull { Factions.fromString(it) },
                 qualities = response.qualities.mapNotNull { Qualities.fromString(it) },
                 races = response.races.mapNotNull { Races.fromString(it) },
-                locales = response.locales.mapNotNull { Locales.fromString(it) }
+                locales = response.locales.toList().mapNotNull { Locales.fromString(it) }
             )
         }
     }

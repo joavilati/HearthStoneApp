@@ -7,6 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
@@ -19,6 +20,10 @@ object NetworkModule  {
     @Provides
     @Singleton
     fun provideOkHttpClient(): OkHttpClient {
+        val loggingInterceptor = HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+        }
+
         return OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
             .readTimeout(30, TimeUnit.SECONDS)
@@ -26,13 +31,14 @@ object NetworkModule  {
             .addInterceptor { chain ->
                 val original = chain.request()
                 val requestBuilder = original.newBuilder()
-                    .addHeader("X_RapidAPI_Key", BuildConfig.X_RapidAPI_Key)
-                    .addHeader("X_RapidAPI_Host", BuildConfig.X_RapidAPI_Host)
+                    .addHeader("X-RapidAPI-Key", BuildConfig.X_RapidAPI_Key)
+                    .addHeader("X-RapidAPI-Host", BuildConfig.X_RapidAPI_Host)
                     .method(original.method, original.body)
 
                 val request = requestBuilder.build()
                 chain.proceed(request)
             }
+            .addInterceptor(loggingInterceptor) // Adicione o interceptor de log
             .build()
     }
 

@@ -2,7 +2,7 @@ package com.example.heartstone_repository.utils
 
 class BadRequestException(message: String = "Requisição inválida. Por favor, verifique os dados enviados e tente novamente.") : Exception(message)
 
-class UnauthorizedException(message: String = "Não autorizado. Por favor, verifique suas credenciais ou token de autenticação.") : Exception(message)
+class UnauthorizedException(message: String = "Não autorizado. Por favor, verifique suas credenciais.") : Exception(message)
 
 class ForbiddenException(message: String = "Acesso proibido. Você não tem permissão para acessar este recurso.") : Exception(message)
 

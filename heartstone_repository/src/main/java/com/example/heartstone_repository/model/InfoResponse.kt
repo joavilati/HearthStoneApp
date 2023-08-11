@@ -8,5 +8,5 @@ data class InfoResponse(
     val factions: List<String>,
     val qualities: List<String>,
     val races: List<String>,
-    val locales: List<String>
+    val locales: LocalesResponse
 )

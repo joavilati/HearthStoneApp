@@ -11,8 +11,8 @@ Este projeto utiliza a API do Hearthstone disponível no RapidAPI. Para garantir
 Substitua `sua_chave_aqui` e `sua_host_aqui` pelos valores obtidos no passo 1.
 
 ```properties
-X_RapidAPI_Key=sua_chave_aqui
-X_RapidAPI_Host=sua_host_aqui
+xRapidAPIKey=sua_chave_aqui
+xRapidAPIHost=sua_host_aqui
 ```
 
 ## Importante
