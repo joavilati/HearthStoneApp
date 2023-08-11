@@ -51,7 +51,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun navigateToSearchCards(typeName: String, name: String) {
-
+        startActivity(CardsByActivity.createIntent(this, typeName, name))
     }
 
     fun showAlert(message: String, onOkPressed: () -> Unit) {
@@ -63,5 +63,10 @@ class MainActivity : AppCompatActivity() {
             }
         val alert = builder.create()
         alert.show()
+    }
+
+    override fun onDestroy() {
+        _binding = null
+        super.onDestroy()
     }
 }

@@ -11,7 +11,7 @@ interface HearthStoneAPI {
     @GET("info")
     suspend fun getInfo(): Response<InfoResponse>
 
-    @GET("{typeName}/{name}")
+    @GET("cards/{typeName}/{name}")
     suspend fun getCardsBy(
         @Path("typeName") typeName: String,
         @Path("name") name: String,
