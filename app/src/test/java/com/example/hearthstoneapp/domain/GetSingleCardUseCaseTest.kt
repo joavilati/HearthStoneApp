@@ -62,7 +62,17 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
             type = "Minion"
         )
 
-        val mockCard = Card.from(mockData)
+        val mockCard = Card(
+            image = "some_url",
+            name = "TestCard",
+            flavor = "Some flavor text",
+            set = "Classic",
+            faction = "Neutral",
+            rarity = "Common",
+            attack = 5,
+            cost = 3,
+            health = 5
+        )
 
         Mockito.`when`(mockRepo.getSingleCard("TestCard")).thenReturn(mockData)
 
