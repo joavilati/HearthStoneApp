@@ -46,7 +46,7 @@ object ViewModelModule {
     }
 
     @Provides
-    fun provideCardsByViewModelFactory(
+    fun provideSingleCardViewModelFactory(
         state: MediatorLiveData<SingleCardViewModel.SingleCardState>,
         getCardsByUseCase: GetSingleCardUseCase
     ): SingleCardViewModelFactory {
