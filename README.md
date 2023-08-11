@@ -1,4 +1,4 @@
-# Projeto Hearthstone API
+# Projeto Hearthstone APP
 
 Este projeto utiliza a API do Hearthstone disponível no RapidAPI. Para garantir o funcionamento correto do projeto, é necessário configurar algumas chaves de API.
 
