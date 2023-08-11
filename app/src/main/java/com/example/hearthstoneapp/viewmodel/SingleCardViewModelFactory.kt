@@ -12,7 +12,7 @@ class SingleCardViewModelFactory @Inject constructor(
     private val useCase: GetSingleCardUseCase
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(CardsByViewModelImpl::class.java)) {
+        if (modelClass.isAssignableFrom(SingleCardViewModelImpl::class.java)) {
             return SingleCardViewModelImpl(state, useCase) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

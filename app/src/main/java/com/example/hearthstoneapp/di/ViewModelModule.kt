@@ -3,6 +3,7 @@ package com.example.hearthstoneapp.di
 import androidx.lifecycle.MediatorLiveData
 import com.example.hearthstoneapp.domain.GetCardsByUseCase
 import com.example.hearthstoneapp.domain.GetInfoUseCase
+import com.example.hearthstoneapp.domain.GetSingleCardUseCase
 import com.example.hearthstoneapp.viewmodel.*
 import dagger.Module
 import dagger.Provides
@@ -42,5 +43,13 @@ object ViewModelModule {
         getCardsByUseCase: GetCardsByUseCase
     ): CardsByViewModelFactory {
         return CardsByViewModelFactory(state, getCardsByUseCase)
+    }
+
+    @Provides
+    fun provideCardsByViewModelFactory(
+        state: MediatorLiveData<SingleCardViewModel.SingleCardState>,
+        getCardsByUseCase: GetSingleCardUseCase
+    ): SingleCardViewModelFactory {
+        return SingleCardViewModelFactory(state, getCardsByUseCase)
     }
 }
