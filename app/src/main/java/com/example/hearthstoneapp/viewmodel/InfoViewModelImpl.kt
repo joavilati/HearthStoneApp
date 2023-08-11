@@ -27,7 +27,7 @@ class InfoViewModelImpl @Inject constructor(
         getInfoUseCase.cleanUp()
     }
 
-    private fun onGetInfo(result: GetInfoUseCase.Result) {
+    fun onGetInfo(result: GetInfoUseCase.Result) {
         when(result){
             is GetInfoUseCase.Result.OnError -> {
                 infoState.postValue(InfoState.ShowError(result.message))
