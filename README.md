@@ -1,10 +1,10 @@
-# Projeto Hearthstone APP
+# Projeto Hearthstone APP [![Android CI](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml)
 
 Este projeto utiliza a API do Hearthstone disponível no RapidAPI. Para garantir o funcionamento correto do projeto, é necessário configurar algumas chaves de API.
 
 ## Configuração
 
-1. Acesse [https://rapidapi.com/omgvamp/api/hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) e obtenha sua chave de API (`X_RapidAPI_Key`) e o host (`X_RapidAPI_Host`).
+1. Acesse [https://rapidapi.com/omgvamp/api/hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) e obtenha sua chave de API (`X-RapidAPI-Key`) e o host (`X-RapidAPI-Host`).
 
 2. No arquivo `local.properties` do seu projeto, adicione as seguintes linhas:
 
