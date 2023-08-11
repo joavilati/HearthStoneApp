@@ -32,7 +32,7 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
     @Test
     fun `when repo returns data, emit OnSuccess`()  = runTest {
 
-        val mockData = CardResponse(
+        val mockData = listOf(CardResponse(
             armor = "",
             artist = "",
             attack = 5,
@@ -60,7 +60,7 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
             rarity = "Common",
             text = "Some card text",
             type = "Minion"
-        )
+        ))
 
         val mockCard = Card(
             image = "some_url",
