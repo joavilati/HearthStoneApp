@@ -1,5 +1,6 @@
 package com.example.hearthstoneapp.di
 
+import com.example.hearthstoneapp.domain.GetCardsByUseCase
 import com.example.hearthstoneapp.domain.GetInfoUseCase
 import com.example.heartstone_repository.data.HearthStoneRepository
 import dagger.Module
@@ -13,5 +14,10 @@ object DomainModule {
     @Provides
     fun provideGetInfoUseCase(repo: HearthStoneRepository): GetInfoUseCase {
         return GetInfoUseCase(repo)
+    }
+
+    @Provides
+    fun provideGetCardsByUseCase(repo: HearthStoneRepository): GetCardsByUseCase {
+        return GetCardsByUseCase(repo)
     }
 }

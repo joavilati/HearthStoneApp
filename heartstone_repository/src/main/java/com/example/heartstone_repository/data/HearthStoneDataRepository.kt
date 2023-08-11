@@ -1,5 +1,6 @@
 package com.example.heartstone_repository.data
 
+import com.example.heartstone_repository.model.CardsByItemResponse
 import com.example.heartstone_repository.model.InfoResponse
 import com.example.heartstone_repository.repository.HearthStoneAPI
 import com.example.heartstone_repository.utils.extensions.handleErrors
@@ -11,5 +12,9 @@ class HearthStoneDataRepository(
 
     override suspend fun getInfo(): InfoResponse {
         return api.getInfo().handleErrors()
+    }
+
+    override suspend fun getCardsBy(typeName: String, name: String): List<CardsByItemResponse> {
+        return api.getCardsBy(typeName, name).handleErrors()
     }
 }
