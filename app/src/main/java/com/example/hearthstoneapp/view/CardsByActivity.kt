@@ -8,6 +8,7 @@ import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.example.hearthstoneapp.databinding.ActivityCardsByBinding
 import com.example.hearthstoneapp.util.extensions.showAlert
+import com.example.hearthstoneapp.view.adapter.CardsByAdapter
 import com.example.hearthstoneapp.viewmodel.CardsByViewModel
 import com.example.hearthstoneapp.viewmodel.CardsByViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +27,7 @@ class CardsByActivity : AppCompatActivity() {
         private const val NAME = "com.example.hearthstoneapp.view.NAME"
 
         fun createIntent(context: Context, typeName: String, name: String): Intent {
-            return  Intent(context, CardsByActivity::class.java).apply {
+            return Intent(context, CardsByActivity::class.java).apply {
                 putExtra(TYPE_NAME, typeName)
                 putExtra(NAME, name)
             }
@@ -34,11 +35,11 @@ class CardsByActivity : AppCompatActivity() {
     }
 
     private val typeName: String by lazy {
-        intent.getStringExtra(TYPE_NAME)?:""
+        intent.getStringExtra(TYPE_NAME) ?: ""
     }
 
     private val name: String by lazy {
-        intent.getStringExtra(NAME)?:""
+        intent.getStringExtra(NAME) ?: ""
     }
 
     private var _binding: ActivityCardsByBinding? = null
@@ -52,13 +53,15 @@ class CardsByActivity : AppCompatActivity() {
     }
 
     private fun createObservers() {
-        viewModel.getState().observe(this) { state->
-            when(state){
+        viewModel.getState().observe(this) { state ->
+            when (state) {
                 is CardsByViewModel.CardsByState.CardsByLoaded -> {
                     binding.cpiLoader.isVisible = false
+                    binding.rvCardsBy.adapter = CardsByAdapter(state.data)
                 }
                 is CardsByViewModel.CardsByState.ShowError -> {
                     binding.cpiLoader.isVisible = false
+                    println("Ninja ${state.message}")
                     showAlert(state.message) { viewModel.getCadsBy(typeName, name) }
                 }
                 CardsByViewModel.CardsByState.ShowLoading -> {

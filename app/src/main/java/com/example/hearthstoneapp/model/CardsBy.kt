@@ -8,7 +8,7 @@ data class CardsBy(
 ) {
     companion object {
         infix fun from(list: List<CardsByItemResponse>): List<CardsBy> {
-            return list.mapNotNull { CardsBy(name = it.name, image = it.img) }
+            return list.mapNotNull { CardsBy(name = it.name, image = it.img?:"") }
         }
     }
 }
