@@ -1,5 +1,7 @@
 package com.example.hearthstoneapp.model
 
+import com.example.hearthstoneapp.constants.Constants
+
 enum class Classes(val value: String) {
     DRUID("Druid"),
     HUNTER("Hunter"),
@@ -12,7 +14,7 @@ enum class Classes(val value: String) {
     WARRIOR("Warrior"),
     DREAM("Dream");
 
-    val typeName = "classes"
+    val typeName = Constants.TYPE_CLASSES
     companion object {
         fun fromString(value: String): Classes? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -36,7 +38,7 @@ enum class Sets(val value: String) {
     TAVERN_BRAWL("Tavern Brawl"),
     THE_GRAND_TOURNAMENT("The Grand Tournament");
 
-    val typeName = "sets"
+    val typeName = Constants.TYPE_SETS
     companion object {
         fun fromString(value: String): Sets? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -52,7 +54,7 @@ enum class Types(val value: String) {
     WEAPON("Weapon"),
     HERO_POWER("Hero Power");
 
-    val typeName = "types"
+    val typeName = Constants.TYPE_TYPES
 
     companion object {
         fun fromString(value: String): Types? {
@@ -66,7 +68,7 @@ enum class Factions(val value: String) {
     ALLIANCE("Alliance"),
     NEUTRAL("Neutral");
 
-    val typeName = "factions"
+    val typeName = Constants.FACTIONS
     companion object {
         fun fromString(value: String): Factions? {
             return values().find { it.value.equals(value, ignoreCase = true) }
@@ -81,7 +83,7 @@ enum class Qualities(val value: String) {
     EPIC("Epic"),
     LEGENDARY("Legendary");
 
-    val typeName = "qualities"
+    val typeName = Constants.TYPE_QUALITIES
 
     companion object {
         fun fromString(value: String): Qualities? {
@@ -99,7 +101,7 @@ enum class Races(val value: String) {
     PIRATE("Pirate"),
     TOTEM("Totem");
 
-    val typeName = "races"
+    val typeName = Constants.RACES
 
     companion object {
         fun fromString(value: String): Races? {

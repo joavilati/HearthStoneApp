@@ -5,25 +5,35 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hearthstoneapp.R
+import com.example.hearthstoneapp.constants.Constants
 import com.example.hearthstoneapp.databinding.ItemTypeInfoCardBinding
 import com.example.hearthstoneapp.model.*
 
-class InfoAdapter(private val callback: (String, String) -> Unit) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class InfoAdapter(private val callback: (String, String) -> Unit) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    private val initialTypes = listOf("Classes", "Sets", "Types", "Factions", "Qualities", "Races")
+    private val initialTypes = listOf(
+        Constants.CLASSES,
+        Constants.SETS,
+        Constants.TYPES,
+        Constants.FACTIONS,
+        Constants.QUALITIES,
+        Constants.RACES
+    )
     private val infoTypes = mutableListOf<String>().apply { addAll(initialTypes) }
     private var info = Info()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val binding = ItemTypeInfoCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemTypeInfoCardBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return when (infoTypes[viewType]) {
-            "Classes" -> InfoClassesViewHolderInfo(binding, callback)
-            "Sets" -> InfoSetsViewHolderInfo(binding, callback)
-            "Types" -> InfoTypesViewHolderInfo(binding, callback)
-            "Factions" -> InfoFactionsViewHolderInfo(binding, callback)
-            "Qualities" -> InfoQualitiesViewHolderInfo(binding, callback)
-            "Races" -> InfoRacesViewHolderInfo(binding, callback)
+            Constants.CLASSES -> InfoClassesViewHolderInfo(binding, callback)
+            Constants.SETS -> InfoSetsViewHolderInfo(binding, callback)
+            Constants.TYPES -> InfoTypesViewHolderInfo(binding, callback)
+            Constants.FACTIONS -> InfoFactionsViewHolderInfo(binding, callback)
+            Constants.QUALITIES -> InfoQualitiesViewHolderInfo(binding, callback)
+            Constants.RACES -> InfoRacesViewHolderInfo(binding, callback)
             else -> throw IllegalArgumentException("Invalid enum name")
         }
     }
@@ -47,12 +57,12 @@ class InfoAdapter(private val callback: (String, String) -> Unit) : RecyclerView
         infoTypes.clear()
         infoTypes.addAll(initialTypes)
         this.info = info
-        if (info.classes.isEmpty()) infoTypes.remove("Classes")
-        if (info.sets.isEmpty()) infoTypes.remove("Sets")
-        if (info.types.isEmpty()) infoTypes.remove("Types")
-        if (info.factions.isEmpty()) infoTypes.remove("Factions")
-        if (info.qualities.isEmpty()) infoTypes.remove("Qualities")
-        if (info.races.isEmpty()) infoTypes.remove("Races")
+        if (info.classes.isEmpty()) infoTypes.remove(Constants.CLASSES)
+        if (info.sets.isEmpty()) infoTypes.remove(Constants.SETS)
+        if (info.types.isEmpty()) infoTypes.remove(Constants.TYPES)
+        if (info.factions.isEmpty()) infoTypes.remove(Constants.FACTIONS)
+        if (info.qualities.isEmpty()) infoTypes.remove(Constants.QUALITIES)
+        if (info.races.isEmpty()) infoTypes.remove(Constants.RACES)
         notifyDataSetChanged()
     }
 
