@@ -59,7 +59,6 @@ class InfoViewModelImplTest : BaseCoroutineTest() {
 
     @Test
     fun `when getInfo is called, show loading state`() = runTest {
-        Mockito.`when`(mockRepo.getInfo()).thenReturn(mockData)
         viewModel.getInfo()
         val state = viewModel.getState().getOrAwaitValue()
         assertTrue(state is InfoViewModel.InfoState.ShowLoading)
