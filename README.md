@@ -4,7 +4,7 @@ Este projeto utiliza a API do Hearthstone disponível no RapidAPI. Para garantir
 
 ## Configuração
 
-1. Acesse [https://rapidapi.com/omgvamp/api/hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) e obtenha sua chave de API (`X_RapidAPI_Key`) e o host (`X_RapidAPI_Host`).
+1. Acesse [https://rapidapi.com/omgvamp/api/hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) e obtenha sua chave de API (`X-RapidAPI-Key`) e o host (`X-RapidAPI-Host`).
 
 2. No arquivo `local.properties` do seu projeto, adicione as seguintes linhas:
 
