@@ -5,7 +5,7 @@ import com.example.heartstone_repository.data.HearthStoneRepository
 import javax.inject.Inject
 
 class GetInfoUseCase @Inject constructor(
-    private val repo: HearthStoneRepository
+    private val repo: HearthStoneRepository,
 ) : BaseUseCase<GetInfoUseCase.Result>() {
     override fun execute() {
         launch {
@@ -14,7 +14,7 @@ class GetInfoUseCase @Inject constructor(
                 liveData.postValue(Result.OnSuccess(Info from data))
 
             } catch (e: Exception) {
-                liveData.value = Result.OnError(e.message ?: "")
+                liveData.postValue(Result.OnError(e.message ?: ""))
             }
         }
     }

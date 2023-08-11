@@ -18,6 +18,7 @@ ext {
     XRapidAPIHost = localProperties['xRapidAPIHost'] ?: ""
     kotlinVersion = "1.8.22"
     hiltVersion = "2.44"
+    mockitoVersion = "3.6.28"
 
     retrofitVersion = "2.9.0"
 }

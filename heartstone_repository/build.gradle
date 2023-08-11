@@ -45,8 +45,8 @@ dependencies {
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
     testImplementation 'junit:junit:4.13.2'
-    testImplementation 'org.mockito:mockito-core:3.6.28'
-    testImplementation 'org.mockito:mockito-inline:3.6.28'
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-inline:$mockitoVersion"
 }
 
 kapt {

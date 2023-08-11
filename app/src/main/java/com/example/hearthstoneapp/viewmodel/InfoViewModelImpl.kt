@@ -30,11 +30,10 @@ class InfoViewModelImpl @Inject constructor(
     private fun onGetInfo(result: GetInfoUseCase.Result) {
         when(result){
             is GetInfoUseCase.Result.OnError -> {
-                infoState.value = InfoState.ShowError(result.message)
+                infoState.postValue(InfoState.ShowError(result.message))
             }
             is GetInfoUseCase.Result.OnSuccess -> {
-                infoState.value = InfoState.InfoLoaded(result.data)
-                infoState.value = InfoState.ShowContent
+                infoState.postValue(InfoState.InfoLoaded(result.data))
             }
         }
     }

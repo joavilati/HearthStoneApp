@@ -9,7 +9,6 @@ abstract class InfoViewModel: ViewModel() {
     sealed class InfoState {
         data class InfoLoaded(val info: Info) : InfoState()
         object ShowLoading : InfoState()
-        object ShowContent : InfoState()
         data class ShowError(val message: String) : InfoState()
     }
 
