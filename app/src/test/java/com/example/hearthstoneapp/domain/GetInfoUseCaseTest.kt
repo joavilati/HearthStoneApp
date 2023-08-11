@@ -5,6 +5,7 @@ import com.example.hearthstoneapp.util.BaseCoroutineTest
 import com.example.hearthstoneapp.util.getOrAwaitValue
 import com.example.heartstone_repository.data.HearthStoneRepository
 import com.example.heartstone_repository.model.InfoResponse
+import com.example.heartstone_repository.model.LocalesResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.*
 import org.junit.Assert.*
@@ -40,7 +41,23 @@ class GetInfoUseCaseTest: BaseCoroutineTest() {
             factions = listOf("Horde", "Alliance", "Neutral"),
             qualities = listOf("Free", "Common", "Rare"),
             races = listOf("Demon", "Dragon", "Mech"),
-            locales = listOf("deDE", "enGB", "enUS")
+            locales = LocalesResponse(
+                deDe = "deDE",
+                enGb = "enGB",
+                enUs = "enUS",
+                esEs = "",
+                esMx = "",
+                frFr = "",
+                itIt = "",
+                jaJp = "",
+                koKr = "",
+                plPl = "",
+                ptBr = "",
+                ruRu = "",
+                thTh = "",
+                zhCn = "",
+                zhTw = ""
+            )
         )
 
         val mockInfo = Info(
