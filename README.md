@@ -1,4 +1,4 @@
-# Projeto Hearthstone APP [![Android CI](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml/badge.svg)](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml)
+# Projeto Hearthstone APP [![Android CI](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml)
 
 Este projeto utiliza a API do Hearthstone disponível no RapidAPI. Para garantir o funcionamento correto do projeto, é necessário configurar algumas chaves de API.
 
