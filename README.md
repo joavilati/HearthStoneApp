@@ -1,21 +1,15 @@
-# Projeto Hearthstone APP [![Android CI](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml)
+# Hearthstone APP Project ![Android CI](https://github.com/joavilati/HearthStoneApp/actions/workflows/main.yml/badge.svg?branch=master&event=push)
 
-Este projeto utiliza a API do Hearthstone disponível no RapidAPI. Para garantir o funcionamento correto do projeto, é necessário configurar algumas chaves de API.
+This project uses the Hearthstone API available on RapidAPI. To ensure the project works correctly, you need to set up some API keys.
 
-## Configuração
+## Configuration
 
-1. Acesse [https://rapidapi.com/omgvamp/api/hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) e obtenha sua chave de API (`X-RapidAPI-Key`) e o host (`X-RapidAPI-Host`).
+1. Go to [https://rapidapi.com/omgvamp/api/hearthstone](https://rapidapi.com/omgvamp/api/hearthstone) and get your API key (`X-RapidAPI-Key`) and the host (`X-RapidAPI-Host`).
 
-2. No arquivo `local.properties` do seu projeto, adicione as seguintes linhas:
+2. In your project's `local.properties` file, add the following lines:
 
-Substitua `sua_chave_aqui` e `sua_host_aqui` pelos valores obtidos no passo 1.
+Replace `your_key_here` and `your_host_here` with the values you got in step 1.
 
 ```properties
-xRapidAPIKey=sua_chave_aqui
-xRapidAPIHost=sua_host_aqui
-```
-
-## Importante
-
-- **Nunca** cometa o arquivo `local.properties` em repositórios públicos para evitar a exposição de suas chaves de API.
-- Certifique-se de que o arquivo `local.properties` está listado no `.gitignore` para evitar o seu envio acidental.
+xRapidAPIKey=your_key_here
+xRapidAPIHost=your_host_here
