@@ -23,5 +23,4 @@ class HearthStoneDataRepository(
         return api.getSingleCard( name).handleErrors()
     }
 
-    //Test DI
 }
