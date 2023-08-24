@@ -1,10 +1,10 @@
-name: Android CI
+name: Master check
 
 on:
   push:
-    branches: [ master ]  # ou a branch que você deseja monitorar
+    branches: [ master ] 
   pull_request:
-    branches: [ master ]  # ou a branch que você deseja monitorar
+    branches: [ master ] 
 
 jobs:
   build:
@@ -37,10 +37,17 @@ jobs:
           ./gradlew --version
           java -version
 
+      - name: Get changed files
+        id: getfile
+        run: |
+          echo "::set-output name=files::$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})"
+
       - name: Build and Test app module
+        if: contains(steps.getfile.outputs.files, 'app/')
         run: ./gradlew app:build app:test
 
       - name: Build and Test heartstone_repository module
+        if: contains(steps.getfile.outputs.files, 'heartstone_repository/')
         run: ./gradlew heartstone_repository:build heartstone_repository:test
 
       - name: Upload Test Results
