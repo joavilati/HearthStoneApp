@@ -72,7 +72,6 @@ class GetCardsByUseCaseTest : BaseCoroutineTest() {
 
     @Test
     fun `when repo throws exception, emit OnError`() = runTest {
-        // Given
         val errorMessage = "Error occurred"
         val typeName = "typeNameExample"
         val name = "nameExample"
@@ -80,10 +79,8 @@ class GetCardsByUseCaseTest : BaseCoroutineTest() {
         Mockito.`when`(mockRepo.getCardsBy(typeName, name))
             .thenThrow(RuntimeException(errorMessage))
 
-        // When
         useCase.setParams(typeName, name).execute()
 
-        // Then
         val result = useCase.getLiveData().getOrAwaitValue()
         assertTrue(result is GetCardsByUseCase.Result.OnError)
         assertEquals(errorMessage, (result as GetCardsByUseCase.Result.OnError).message)

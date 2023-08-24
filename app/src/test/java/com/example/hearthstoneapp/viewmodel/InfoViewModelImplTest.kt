@@ -17,7 +17,6 @@ import org.mockito.MockitoAnnotations
 
 @ExperimentalCoroutinesApi
 class InfoViewModelImplTest : BaseCoroutineTest() {
-    //
     private lateinit var viewModel: InfoViewModelImpl
 
     private val infoState = MediatorLiveData<InfoViewModel.InfoState>()

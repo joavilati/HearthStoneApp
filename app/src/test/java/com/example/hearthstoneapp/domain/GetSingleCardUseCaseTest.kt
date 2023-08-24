@@ -91,14 +91,11 @@ class GetSingleCardUseCaseTest: BaseCoroutineTest() {
 
     @Test
     fun `when repo throws exception, emit OnError`() = runTest {
-        // Given
         val errorMessage = "Error occurred"
         Mockito.`when`(mockRepo.getSingleCard("TestCard")).thenThrow(RuntimeException(errorMessage))
 
-        // When
         useCase.setParams("TestCard").execute()
 
-        // Then
         val result = useCase.getLiveData().getOrAwaitValue()
         assertTrue(result is GetSingleCardUseCase.Result.OnError)
         assertEquals(errorMessage, (result as GetSingleCardUseCase.Result.OnError).message)
