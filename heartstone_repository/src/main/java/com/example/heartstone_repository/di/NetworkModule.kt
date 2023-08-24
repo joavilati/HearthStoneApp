@@ -38,7 +38,7 @@ object NetworkModule  {
                 val request = requestBuilder.build()
                 chain.proceed(request)
             }
-            .addInterceptor(loggingInterceptor) // Adicione o interceptor de log
+            .addInterceptor(loggingInterceptor) 
             .build()
     }
 
