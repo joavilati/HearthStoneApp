@@ -2,9 +2,9 @@ name: Android CI
 
 on:
   push:
-    branches: [ master ]  # ou a branch que você deseja monitorar
+    branches: [ master ] 
   pull_request:
-    branches: [ master ]  # ou a branch que você deseja monitorar
+    branches: [ master ] 
 
 jobs:
   build:
