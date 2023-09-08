@@ -3,7 +3,7 @@ package com.example.hearthstoneapp.domain
 import com.example.hearthstoneapp.model.*
 import com.example.hearthstoneapp.util.BaseCoroutineTest
 import com.example.hearthstoneapp.util.getOrAwaitValue
-import com.example.heartstone_repository.data.HearthStoneRepository
+import com.example.heartstone_repository.repository.HearthStoneRepository
 import com.example.heartstone_repository.model.InfoResponse
 import com.example.heartstone_repository.model.LocalesResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi

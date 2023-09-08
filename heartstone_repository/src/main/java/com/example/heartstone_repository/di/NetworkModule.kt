@@ -1,7 +1,7 @@
 package com.example.heartstone_repository.di
 
 import com.example.heartstone_repository.BuildConfig
-import com.example.heartstone_repository.repository.HearthStoneAPI
+import com.example.heartstone_repository.data.HearthStoneAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

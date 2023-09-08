@@ -1,7 +1,7 @@
 package com.example.hearthstoneapp.domain
 
 import com.example.hearthstoneapp.model.Info
-import com.example.heartstone_repository.data.HearthStoneRepository
+import com.example.heartstone_repository.repository.HearthStoneRepository
 import javax.inject.Inject
 
 class GetInfoUseCase @Inject constructor(

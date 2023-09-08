@@ -5,7 +5,7 @@ import com.example.hearthstoneapp.domain.GetSingleCardUseCase
 import com.example.hearthstoneapp.model.Card
 import com.example.hearthstoneapp.util.BaseCoroutineTest
 import com.example.hearthstoneapp.util.getOrAwaitValue
-import com.example.heartstone_repository.data.HearthStoneRepository
+import com.example.heartstone_repository.repository.HearthStoneRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals

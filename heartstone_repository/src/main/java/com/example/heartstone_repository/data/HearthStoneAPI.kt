@@ -1,4 +1,4 @@
-package com.example.heartstone_repository.repository
+package com.example.heartstone_repository.data
 
 import com.example.heartstone_repository.model.CardResponse
 import com.example.heartstone_repository.model.CardsByItemResponse

@@ -1,13 +1,11 @@
 package com.example.heartstone_repository.di
 
-import android.content.Context
-import com.example.heartstone_repository.data.HearthStoneDataRepository
-import com.example.heartstone_repository.data.HearthStoneRepository
-import com.example.heartstone_repository.repository.HearthStoneAPI
+import com.example.heartstone_repository.repository.HearthStoneDataRepository
+import com.example.heartstone_repository.repository.HearthStoneRepository
+import com.example.heartstone_repository.data.HearthStoneAPI
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 

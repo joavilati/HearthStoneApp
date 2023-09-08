@@ -3,7 +3,7 @@ package com.example.hearthstoneapp.di
 import com.example.hearthstoneapp.domain.GetCardsByUseCase
 import com.example.hearthstoneapp.domain.GetInfoUseCase
 import com.example.hearthstoneapp.domain.GetSingleCardUseCase
-import com.example.heartstone_repository.data.HearthStoneRepository
+import com.example.heartstone_repository.repository.HearthStoneRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
